@@ -7,9 +7,9 @@
 ## Working on
 * 13.01.2020 > 16.01.2020 : fn bot add fri and say 'xxx' to them.
 * 16.01.2020 > __	  : w on acc-tkn(tkn that can be used to lgn on any devi".
-* 18.01.2020 > __   	  : fn v1.0 
-			    - Import CSV file by using 'Instant Data Scraper' Chrome extension
-			    - Add fri n say 'xxx' msg, if already snt fri say 'waiting comfirmation...' else say 'u already fri with 'xxx'.
+* 18.01.2020 > __   	  : fn v1.0 \n
+			    - Import CSV file by using 'Instant Data Scraper' Chrome extension \n
+			    - Add fri n say 'xxx' msg, if already snt fri say 'waiting comfirmation...' else say 'u already fri with 'xxx'. \n
 *** NOTE *** Due to some currency problem, It's delay for next version.
 
 ## Next Features
