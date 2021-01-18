@@ -5,11 +5,11 @@
 - client account add friend to those people, and also sent 'xxx' message to them.
 
 ## Working on
-* 13.01.2020 > 16.01.2020 : fn bot add fri and say 'xxx' to them.
-* 16.01.2020 > __________ : w on acc-tkn(tkn that can be used to lgn on any devi".
-* 18.01.2020 > __________ : fn v1.0 <br />
+* 13.01.2020 > 16.01.2020: fn bot add fri and say 'xxx' to them.
+* 16.01.2020 > ___________ : w on acc-tkn(tkn that can be used to lgn on any devi".
+* 18.01.2020 > ___________ : fn v1.0 <br />
 			    - Import CSV file by using 'Instant Data Scraper' Chrome extension <br />
-			    - Add fri n say 'xxx' msg, if already snt fri say 'waiting comfirmation...' else say 'u already fri with 'xxx'.
+			    - Add fri n say 'xxx' msg, if already snt fri say 'waiting comfirmation...' else say 'u already fri with 'xxx'. <br /><br />
 *** NOTE *** Due to some currency problem, It's delay for next version.
 
 ## Next Features
