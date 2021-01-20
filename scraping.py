@@ -10,6 +10,8 @@ from selenium.webdriver.chrome.options import Options
 login_form_url = "https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=100"
 
 def sent_message():
+    """ Sent message 'xxx' if it's first time we adding friend too. 
+    """
     try: 
         text = driver.find_element_by_xpath('//*[@id="composerInput"]')
         text.send_keys('Hii :)')
@@ -56,17 +58,6 @@ def add_fri_sent_mess(profile_url):
         except Exception:
             print("There's Something Went Wrong...")   
 
-    # ? When should message sent to:
-    # ? 1. At the same time we sent friend request
-    # ? 2. When we got friend comfirmation
-    # text = driver.find_element_by_xpath("//table/tbody/tr/td/textarea")
-    # sent.click()
-    # sent = driver.find_element_by_xpath("//table/tbody/tr/td[2]/a[.='Message']")
-    # print("Message button clicked")
-    # text.send_keys("Hello Hi bybybye!!")
-    # print("text")
-
-
 def json_to_obj(filename):
     """ Extract data from JSON file and save it on Python object 
     """
@@ -91,10 +82,10 @@ def dataframe_to_obj():
     for i in range(len(profile_urls)):
         ls = profile_urls.loc[i, cname]
         list_url.append("https://mbasic" + ls[11:])
-        # print(list_url.append(profile_urls.loc[i, cname]))
     return list_url
 
 if __name__ == "__main__":
+    
     ### Extracts credentials for the login and all of the profiles URL to scrape
     credentials = json_to_obj('credentials.json')
     profile_urls = dataframe_to_obj()
@@ -104,9 +95,10 @@ if __name__ == "__main__":
     options = webdriver.ChromeOptions()
     prefs = {"profile.default_content_setting_values.notifications" : 2}
     options.add_experimental_option("prefs", prefs)
+
     ### Running at background without opening browser.
-    # options.add_argument('--headless')
-    # options.add_argument('--disable-gpu')
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
 
     driver = webdriver.Chrome(options=options, executable_path=r'/usr/bin/chromedriver')
 
@@ -121,6 +113,20 @@ if __name__ == "__main__":
     button = driver.find_element_by_xpath("//button[@id='loginbutton']")
     button.click()
     print("button clicked...")
+
+    print("[***] Sleep 20s for input verification code")
+
+    vcode = input("Enter your verification code : ")
+
+    try:
+        lcode = driver.find_element_by_xpath('//*[@id="approvals_code"]')
+        lcode.send_keys(vcode)
+        cbutton = driver.find_element_by_xpath('//*[@id="checkpointSubmitButton"]')
+        cbutton.click()
+        lbutton = driver.find_element_by_xpath('//*[@id="checkpointSubmitButton"]')
+        lbutton.click()
+    except Exception:
+        print("Opss, Something went wrong with verification code...")
 
     time.sleep(5)
     print("login successfully...")
